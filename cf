@@ -1,74 +1,66 @@
 [{
-    "log": {
-      "access": "",
-      "error": "",
-      "loglevel": "warning"
-    },
-{
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "allowTransparent": false
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "socks"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "allowTransparent": false
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "http"
-    }
-  ],
   "log": {
     "access": "",
     "error": "",
     "loglevel": "warning"
   },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": false
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": false
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      }
+    }
+  ],
   "outbounds": [
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 0
-      },
+      "tag": "proxy",
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "zula.ir",
+            "address": "virgool.ir",
             "port": 443,
             "users": [
               {
+                "id": "f6608628-25f0-4fdd-8dbe-c2a87b431b3d",
                 "alterId": 0,
+                "email": "t@t.tt",
+                "security": "auto",
                 "encryption": "none",
-                "flow": "",
-                "id": "2210d3c6-1ff6-4aeb-8728-05a8c59848d1",
-                "level": 8,
-                "security": "auto"
+                "flow": ""
               }
             ]
           }
@@ -77,152 +69,147 @@
       "streamSettings": {
         "network": "ws",
         "security": "tls",
-        "sockopt": {
-          "dialerProxy": "fragment",
-          "mark": 255,
-          "tcpKeepAliveIdle": 100
-        },
         "tlsSettings": {
-          "allowInsecure": true,
+          "allowInsecure": false,
+          "serverName": "mAIL.web4NeT.eU.Org",
           "alpn": [
             "h2",
             "http/1.1"
           ],
           "fingerprint": "chrome",
-          "serverName": "vsub2.b4net.ir",
           "show": false
         },
         "wsSettings": {
+          "path": "vless-ws/",
           "headers": {
-            "Host": "vsub2.b4net.ir"
-          },
-          "path": "/ws/8080"
+            "Host": "mAIL.web4NeT.eU.Org"
+          }
+        },
+        "sockopt": {
+          "dialerProxy": "fragment",
+          "tcpKeepAliveIdle": 100,
+          "mark": 255,
+          "tcpNoDelay": true
         }
-      },
-      "tag": "proxy"
+      }
     },
     {
+      "tag": "fragment",
       "protocol": "freedom",
       "settings": {
         "domainStrategy": "AsIs",
         "fragment": {
-          "interval": "1-2",
-          "length": "150-200",
-          "packets": "tlshello"
+          "packets": "tlshello",
+          "length": "10-20",
+          "interval": "10-20"
         }
       },
       "streamSettings": {
-        "network": "tcp",
-        "security": "",
         "sockopt": {
+          "tcpNoDelay": true,
           "tcpKeepAliveIdle": 100
         }
-      },
-      "tag": "fragment"
+      }
     },
     {
+      "tag": "direct",
       "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
+      "settings": {}
     },
     {
+      "tag": "block",
       "protocol": "blackhole",
       "settings": {
         "response": {
           "type": "http"
         }
-      },
-      "tag": "block"
+      }
     }
   ],
   "routing": {
     "domainStrategy": "AsIs",
     "rules": [
       {
+        "type": "field",
         "inboundTag": [
           "api"
         ],
         "outboundTag": "api",
-        "type": "field"
+        "enabled": true
       },
       {
-        "outboundTag": "proxy",
+        "id": "5627785659655799759",
+        "type": "field",
         "port": "0-65535",
-        "type": "field"
+        "outboundTag": "proxy",
+        "enabled": true
       }
     ]
   }
-},{
-    "log": {
-      "access": "",
-      "error": "",
-      "loglevel": "warning"
-    },{
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "allowTransparent": false
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "socks"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "allowTransparent": false
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "http"
-    }
-  ],
+},
+{
   "log": {
     "access": "",
     "error": "",
     "loglevel": "warning"
   },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": false
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": false
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      }
+    }
+  ],
   "outbounds": [
     {
-      "mux": {
-        "concurrency": 8,
-        "enabled": true,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": "reject"
-      },
+      "tag": "proxy",
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "zula.ir",
+            "address": "172.67.0.52",
             "port": 443,
             "users": [
               {
+                "id": "f6608628-25f0-4fdd-8dbe-c2a87b431b3d",
                 "alterId": 0,
+                "email": "t@t.tt",
+                "security": "auto",
                 "encryption": "none",
-                "flow": "",
-                "id": "2210d3c6-1ff6-4aeb-8728-05a8c59848d1",
-                "level": 8,
-                "security": "auto"
+                "flow": ""
               }
             ]
           }
@@ -231,78 +218,229 @@
       "streamSettings": {
         "network": "ws",
         "security": "tls",
-        "sockopt": {
-          "dialerProxy": "fragment",
-          "mark": 255,
-          "tcpKeepAliveIdle": 100
-        },
         "tlsSettings": {
-          "allowInsecure": true,
+          "allowInsecure": false,
+          "serverName": "mAIL.web4NeT.eU.Org",
           "alpn": [
             "h2",
             "http/1.1"
           ],
           "fingerprint": "chrome",
-          "serverName": "vsub2.b4net.ir",
           "show": false
         },
         "wsSettings": {
+          "path": "vless-ws/",
           "headers": {
-            "Host": "vsub2.b4net.ir"
-          },
-          "path": "/ws/8080"
+            "Host": "mAIL.web4NeT.eU.Org"
+          }
+        },
+        "sockopt": {
+          "dialerProxy": "fragment",
+          "tcpKeepAliveIdle": 100,
+          "mark": 255,
+          "tcpNoDelay": true
         }
-      },
-      "tag": "proxy"
+      }
     },
     {
+      "tag": "fragment",
       "protocol": "freedom",
       "settings": {
         "domainStrategy": "AsIs",
         "fragment": {
-          "interval": "1-2",
-          "length": "150-200",
-          "packets": "tlshello"
+          "packets": "tlshello",
+          "length": "10-20",
+          "interval": "10-20"
         }
       },
       "streamSettings": {
-        "network": "tcp",
-        "security": "",
         "sockopt": {
+          "tcpNoDelay": true,
           "tcpKeepAliveIdle": 100
         }
-      },
-      "tag": "fragment"
+      }
     },
     {
+      "tag": "direct",
       "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
+      "settings": {}
     },
     {
+      "tag": "block",
       "protocol": "blackhole",
       "settings": {
         "response": {
           "type": "http"
         }
-      },
-      "tag": "block"
+      }
     }
   ],
   "routing": {
     "domainStrategy": "AsIs",
     "rules": [
       {
+        "type": "field",
         "inboundTag": [
           "api"
         ],
         "outboundTag": "api",
-        "type": "field"
+        "enabled": true
       },
       {
-        "outboundTag": "proxy",
+        "id": "5627785659655799759",
+        "type": "field",
         "port": "0-65535",
-        "type": "field"
+        "outboundTag": "proxy",
+        "enabled": true
+      }
+    ]
+  }
+},
+{
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": false
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": false
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "allowTransparent": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "goodultimate.shop",
+            "port": 443,
+            "users": [
+              {
+                "id": "f6608628-25f0-4fdd-8dbe-c2a87b431b3d",
+                "alterId": 0,
+                "email": "t@t.tt",
+                "security": "auto",
+                "encryption": "none",
+                "flow": ""
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "serverName": "mAIL.web4NeT.eU.Org",
+          "alpn": [
+            "h2",
+            "http/1.1"
+          ],
+          "fingerprint": "chrome",
+          "show": false
+        },
+        "wsSettings": {
+          "path": "vless-ws/",
+          "headers": {
+            "Host": "mAIL.web4NeT.eU.Org"
+          }
+        },
+        "sockopt": {
+          "dialerProxy": "fragment",
+          "tcpKeepAliveIdle": 100,
+          "mark": 255,
+          "tcpNoDelay": true
+        }
+      }
+    },
+    {
+      "tag": "fragment",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "AsIs",
+        "fragment": {
+          "packets": "tlshello",
+          "length": "10-20",
+          "interval": "10-20"
+        }
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tcpNoDelay": true,
+          "tcpKeepAliveIdle": 100
+        }
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "enabled": true
+      },
+      {
+        "id": "5627785659655799759",
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "proxy",
+        "enabled": true
       }
     ]
   }
