@@ -51,7 +51,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "virgool.ir",
+            "address": "104.18.166.4",
             "port": 443,
             "users": [
               {
