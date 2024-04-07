@@ -71,7 +71,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mAIL.web4NeT.eU.Org",
+          "serverName": "VsUbVlS2.HdW1.WoRkErS.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -82,7 +82,7 @@
         "wsSettings": {
           "path": "vless-ws/",
           "headers": {
-            "Host": "mAIL.web4NeT.eU.Org"
+            "Host": "VsUbVlS2.HdW1.WoRkErS.DeV"
           }
         },
         "sockopt": {
@@ -220,7 +220,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mAIL.web4NeT.eU.Org",
+          "serverName": "VsUbVlS2.HdW1.WoRkErS.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -231,7 +231,7 @@
         "wsSettings": {
           "path": "vless-ws/",
           "headers": {
-            "Host": "mAIL.web4NeT.eU.Org"
+            "Host": "VsUbVlS2.HdW1.WoRkErS.DeV"
           }
         },
         "sockopt": {
@@ -369,7 +369,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mAIL.web4NeT.eU.Org",
+          "serverName": "VsUbVlS2.HdW1.WoRkErS.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -380,7 +380,7 @@
         "wsSettings": {
           "path": "vless-ws/",
           "headers": {
-            "Host": "mAIL.web4NeT.eU.Org"
+            "Host": "VsUbVlS2.HdW1.WoRkErS.DeV"
           }
         },
         "sockopt": {
@@ -517,7 +517,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mAIL.web4NeT.eU.Org",
+          "serverName": "VsUbVlS2.HdW1.WoRkErS.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -528,7 +528,7 @@
         "wsSettings": {
           "path": "vless-ws/",
           "headers": {
-            "Host": "mAIL.web4NeT.eU.Org"
+            "Host": "VsUbVlS2.HdW1.WoRkErS.DeV"
           }
         },
         "sockopt": {
@@ -665,7 +665,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mAIL.web4NeT.eU.Org",
+          "serverName": "VsUbVlS2.HdW1.WoRkErS.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -676,7 +676,7 @@
         "wsSettings": {
           "path": "vless-ws/",
           "headers": {
-            "Host": "mAIL.web4NeT.eU.Org"
+            "Host": "VsUbVlS2.HdW1.WoRkErS.DeV"
           }
         },
         "sockopt": {
@@ -813,7 +813,7 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "serverName": "mAIL.web4NeT.eU.Org",
+          "serverName": "VsUbVlS2.HdW1.WoRkErS.DeV",
           "alpn": [
             "h2",
             "http/1.1"
@@ -824,7 +824,7 @@
         "wsSettings": {
           "path": "vless-ws/",
           "headers": {
-            "Host": "mAIL.web4NeT.eU.Org"
+            "Host": "VsUbVlS2.HdW1.WoRkErS.DeV"
           }
         },
         "sockopt": {
